@@ -9,6 +9,5 @@ import java.util.List;
 public interface CategoryRepository extends JpaRepository<Category,Long>
 {
     @Procedure(name="getAllCategoriesThroughStoredProcedure")
-    //@Query(value = "CALL get_all_categories;",nativeQuery = true)
-    List<Category> getAllCategoriesThroughStoredProcedure();
+    List<Category> getAllCategories();
 }
