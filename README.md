@@ -13,4 +13,5 @@ END$$
 DELIMITER ;
 
 ```
-3.Run the project and it will create **Category** table
+3.Run the project and it will create **Category** table and also inserts data based on sql statements in `resources` folder 
+4.Go to http://localhost:8080/api/v1/category/list to see all categories 
