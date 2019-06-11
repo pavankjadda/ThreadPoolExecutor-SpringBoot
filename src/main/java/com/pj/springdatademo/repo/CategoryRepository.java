@@ -10,4 +10,7 @@ public interface CategoryRepository extends JpaRepository<Category,Long>
 {
     @Procedure(name="Category.getAllCategoriesThroughStoredProcedure")
     List<Category> getAllCategoriesThroughStoredProcedure();
+
+    /*@Procedure(procedureName="get_all_categories")
+    List<Category> getAllCategoriesThroughStoredProcedure();*/
 }
