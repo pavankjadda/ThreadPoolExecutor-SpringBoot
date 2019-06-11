@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface CategoryRepository extends JpaRepository<Category,Long>
 {
-    @Procedure(name="getAllCategoriesThroughStoredProcedure")
-    List<Category> getAllCategories();
+    @Procedure(procedureName="get_all_categories")
+    List<Category> getAllCategoriesThroughStoredProcedure();
 }

@@ -24,6 +24,6 @@ public class CategoryController
     @GetMapping(path = "/list")
     public List<Category> getAllCategories()
     {
-        return categoryRepository.getAllCategories();
+        return categoryRepository.getAllCategoriesThroughStoredProcedure();
     }
 }
