@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -23,4 +24,7 @@ public class Category implements Serializable
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "created_on",columnDefinition = "TIMESTAMP(6)")
+    private LocalDateTime createdOn;
 }
