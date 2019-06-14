@@ -1,6 +1,7 @@
 package com.pj.springdatademo.web;
 
 import com.pj.springdatademo.repo.DbFileRepository;
+import org.apache.commons.io.FileCleaningTracker;
 import org.apache.commons.io.IOUtils;
 import org.apache.tomcat.util.http.fileupload.FileItemIterator;
 import org.apache.tomcat.util.http.fileupload.FileItemStream;
@@ -40,8 +41,11 @@ public class FileController
                 DiskFileItemFactory diskFileItemFactory=new DiskFileItemFactory();
                 String filePath="/Users/pjadda/Downloads/test";
                 diskFileItemFactory.setRepository(new File(filePath));
+
+
                 ServletFileUpload servletFileUpload=new ServletFileUpload(diskFileItemFactory);
                 FileItemIterator items=servletFileUpload.getItemIterator(request);
+
 
                 while (items.hasNext())
                 {
@@ -54,6 +58,10 @@ public class FileController
                         try
                         {
                             IOUtils.copy(uploadedStream, out);
+
+                            FileCleaningTracker fileCleaningTracker=new FileCleaningTracker();
+                            fileCleaningTracker.track(filePath+"/"+item.getName(),null);
+                            fileCleaningTracker.exitWhenFinished();
                         }
                         catch (Exception e)
                         {
