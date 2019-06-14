@@ -1,7 +1,9 @@
 
 ## Server Properties
 server:
-  port: 8080
+  port: 8081
+  servlet:
+    context-path: /
 
 #Spring Properties
 
@@ -10,10 +12,11 @@ spring:
     name: SpringSecurity-Data-Application
   servlet:
     multipart:
-      enabled: true
-      file-size-threshold: 2KB
-      max-file-size: 200GB
-      max-request-size: 215GB
+      enabled: false
+      #file-size-threshold: 2KB
+      max-file-size: -1
+      max-request-size: -1
+
 
 
   # Jpa Properties
