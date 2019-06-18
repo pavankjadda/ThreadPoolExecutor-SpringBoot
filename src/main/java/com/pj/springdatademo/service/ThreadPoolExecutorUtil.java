@@ -22,11 +22,12 @@ public class ThreadPoolExecutorUtil
     {
         Future<?> future=threadPoolExecutor.submit(task);
 
-        if(future.isDone())
+        while (!future.isDone())
         {
             try
             {
                 future.get();
+                System.out.println("task.categories: "+task.categories.toString());
             }
             catch (Exception e)
             {
@@ -34,6 +35,4 @@ public class ThreadPoolExecutorUtil
             }
         }
     }
-
-
 }
