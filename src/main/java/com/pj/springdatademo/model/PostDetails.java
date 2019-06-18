@@ -1,5 +1,6 @@
 package com.pj.springdatademo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -21,7 +22,8 @@ public class PostDetails
 
     @OneToOne(fetch = FetchType.LAZY)
     @MapsId
-    //@JoinColumn(name = "post_id")
+    @JoinColumn(name = "id")
+    @JsonIgnore
     private Post post;
 
     public PostDetails()
