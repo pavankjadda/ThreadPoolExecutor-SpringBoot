@@ -24,4 +24,19 @@ public class CandidateProfileController
     {
         return candidateProfileRepository.findAll();
     }
+
+    @GetMapping(path = "/create")
+    public List<CandidateProfile> createAndGetAllCandidateProfiles()
+    {
+        CandidateProfile candidateProfile=new CandidateProfile();
+        candidateProfile.setFirstName("John");
+        candidateProfile.setLastName("Doe");
+        candidateProfile.setPhone("151111");
+        candidateProfile.setEmail("John.Doe@example.com");
+        candidateProfile.setCandidateLocation("DC");
+        candidateProfile.setId(1L);
+        candidateProfileRepository.saveAndFlush(candidateProfile);
+
+        return candidateProfileRepository.findAll();
+    }
 }

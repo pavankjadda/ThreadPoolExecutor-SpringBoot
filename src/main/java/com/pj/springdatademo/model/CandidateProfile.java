@@ -4,13 +4,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import java.io.Serializable;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@DiscriminatorValue(value = "CANDIDATE")
 @Data
 public class CandidateProfile extends UserProfile implements Serializable
 {

@@ -7,15 +7,12 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-@Entity
-@DiscriminatorColumn(name = "PROFILE_TYPE")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@Table(name = "user_profile")
+@MappedSuperclass
 @Data
 public class UserProfile  implements Serializable
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
     private Long id;
 
