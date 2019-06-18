@@ -3,14 +3,17 @@ package com.pj.springdatademo.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity(name = "Post")
 @Table(name = "post")
 @Data
-public class Post
+public class Post implements Serializable
 {
+    private static final long serialVersionUID = -6698422774799518217L;
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
@@ -19,7 +22,6 @@ public class Post
     private PostDetails details;
 
     //Getters and setters omitted for brevity
-
     public void setDetails(PostDetails details)
     {
         if (details == null)

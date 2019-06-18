@@ -4,6 +4,7 @@ import com.pj.springdatademo.model.Post;
 import com.pj.springdatademo.model.PostDetails;
 import com.pj.springdatademo.repo.PostDetailRepository;
 import com.pj.springdatademo.repo.PostRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,19 +38,19 @@ public class PostController
     @GetMapping(path = "/create")
     public List<Post> createAndGetPosts()
     {
+
         Post post=new Post();
         post.setId(new Random().nextLong());
         post.setTitle("First Post");
-        post.setDetails(null);
         post=postRepository.saveAndFlush(post);
 
         PostDetails postDetails=new PostDetails();
-        postDetails.setPost(post);
         postDetails.setCreatedBy("Admin");
         postDetails.setCreatedOn(Date.from(Instant.now()));
+        postDetails.setPost(post);
         postDetailRepository.saveAndFlush(postDetails);
 
-        return postRepository.findAll();
+        return postRepository.findAll(Sort.by(Sort.Direction.DESC,"id"));
     }
 
     @GetMapping(path = "/delete/{id}")

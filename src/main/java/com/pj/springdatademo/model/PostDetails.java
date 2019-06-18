@@ -4,13 +4,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity(name = "PostDetails")
 @Table(name = "post_details")
 @Data
-public class PostDetails
+public class PostDetails  implements Serializable
 {
+    private static final long serialVersionUID = -6699482774799518217L;
+
     @Id
     private Long id;
 
@@ -26,15 +29,4 @@ public class PostDetails
     @JsonIgnore
     private Post post;
 
-    public PostDetails()
-    {
-    }
-
-    public PostDetails(String createdBy)
-    {
-        this.createdOn = new Date();
-        this.createdBy = createdBy;
-    }
-
-    //Getters and setters omitted for brevity
 }
