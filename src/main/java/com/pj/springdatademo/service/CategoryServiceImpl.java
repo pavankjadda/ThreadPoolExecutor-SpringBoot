@@ -21,6 +21,11 @@ public class CategoryServiceImpl implements CategoryService
     @Override
     public List<Category> getAllCategoriesAsync()
     {
+        for (int i=0;i<10000;i++)
+        {
+            Task task=new Task(categoryRepository);
+            threadPoolExecutorUtil.executeTask(task);
+        }
         Task task=new Task(categoryRepository);
         threadPoolExecutorUtil.executeTask(task);
 
