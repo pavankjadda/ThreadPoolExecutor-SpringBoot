@@ -10,3 +10,6 @@ INSERT INTO `threadpooldemo`.`employee` (`id`, `email`, `first_name`, `last_name
 
 ```
 3.Go to http://localhost:8080/api/v1/employee/list to see all categories 
+
+### Summary 
+See this [Medium](https://medium.com/@pavankjadda/synchronous-and-asynchronous-data-access-using-threadpoolexecutor-and-spring-boot-spring-data-d1b5cfb3c3a9?postPublishedType=initial) for details
