@@ -1,23 +1,12 @@
-# SpringDataDemo
-Spring Data Demo project created to showcase bug in Spring Data JPA 
+# Synchronous and Asynchronous Data access using ThreadPoolExecutor and Spring Boot, Spring Data
+Synchronous and Asynchronous Data access using ThreadPoolExecutor and Spring Boot, Spring Data
 
 ### How to run?
-1. Create `springdatademo` database in MySql database
-2. Run the project and it will create **Category** table and also inserts data using following commands
+1. Create `threadpooldemo` database in MySql database
+2. Run the project and it will create **Employee** table and also inserts data using following commands
 ```
-INSERT INTO `springdatademo`.`category` (`id`, `description`, `name`) VALUES ('1001', 'Books', 'Books');
-INSERT INTO `springdatademo`.`category` (`id`, `description`, `name`) VALUES ('1002', 'Electronics', 'Electronics');
+INSERT INTO `threadpooldemo`.`employee` (`id`, `email`, `first_name`, `last_name`, `phone`) VALUES ('1', 'john.doe@hj.com', 'John', 'Doe', '233323');
+INSERT INTO `threadpooldemo`.`employee` (`id`, `email`, `first_name`, `last_name`, `phone`) VALUES ('2', 'jack@hj.com', 'Jack', 'Doe', '09094044');
 
 ```
-3.Create stored procedure named `get_all_categories` in database
-   ```
-   DELIMITER $$
-   CREATE DEFINER=`root`@`localhost` PROCEDURE `get_all_categories`()
-   BEGIN
-   	select * from category;
-   END$$
-   DELIMITER ;
-   
-   ``` 
-
-4.Go to http://localhost:8080/api/v1/category/list to see all categories 
+3.Go to http://localhost:8080/api/v1/employee/list to see all categories 
