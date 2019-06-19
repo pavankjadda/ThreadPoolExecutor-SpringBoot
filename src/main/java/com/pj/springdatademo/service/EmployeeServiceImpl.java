@@ -19,7 +19,7 @@ public class EmployeeServiceImpl implements EmployeeService
     }
 
     @Override
-    public List<Employee> getAllCategoriesAsync()
+    public List<Employee> getAllEmployeesAsync()
     {
         for (int i=0;i<10000;i++)
         {
@@ -36,7 +36,7 @@ public class EmployeeServiceImpl implements EmployeeService
     }
 
     @Override
-    public List<Employee> getAllCategories()
+    public List<Employee> getAllEmployees()
     {
         return employeeRepository.findAll();
     }

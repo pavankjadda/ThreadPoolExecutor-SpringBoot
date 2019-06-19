@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface EmployeeService
 {
-    List<Employee> getAllCategoriesAsync();
+    List<Employee> getAllEmployeesAsync();
 
-    List<Employee> getAllCategories();
+    List<Employee> getAllEmployees();
 }
