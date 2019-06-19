@@ -2,12 +2,22 @@
 ## Server Properties
 server:
   port: 8080
+  servlet:
+    context-path: /
 
 #Spring Properties
 
 spring:
   application:
     name: SpringSecurity-Data-Application
+  servlet:
+    multipart:
+      enabled: false
+      #file-size-threshold: 2KB
+      max-file-size: -1
+      max-request-size: -1
+
+
 
   # Jpa Properties
   datasource:
@@ -16,18 +26,20 @@ spring:
     password: bcmc1234
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+
   jpa:
     generate-ddl: true
     properties:
       hibernate:
         ddl-auto: update
         show_sql: true
+        dialet: org.hibernate.dialect.MySQL8Dialect
 
   # Spring Session properties
-
   devtools:
     restart:
       enabled: true
+
 
 zuul:
   routes:

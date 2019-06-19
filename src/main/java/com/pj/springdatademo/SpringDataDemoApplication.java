@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Bean;
 @EnableZuulProxy
 public class SpringDataDemoApplication
 {
-
     public static void main(String[] args)
     {
         SpringApplication.run(SpringDataDemoApplication.class, args);
