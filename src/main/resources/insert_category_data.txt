@@ -1,2 +1,2 @@
-INSERT INTO `springdatademo`.`category` (`id`, `description`, `name`) VALUES ('1001', 'Books', 'Books');
-INSERT INTO `springdatademo`.`category` (`id`, `description`, `name`) VALUES ('1002', 'Electronics', 'Electronics');
+INSERT INTO `threadpooldemo`.`employee` (`id`, `email`, `first_name`, `last_name`, `phone`) VALUES ('1', 'john.doe@hj.com', 'John', 'Doe', '233323');
+INSERT INTO `threadpooldemo`.`employee` (`id`, `email`, `first_name`, `last_name`, `phone`) VALUES ('2', 'jack@hj.com', 'Jack', 'Doe', '09094044');

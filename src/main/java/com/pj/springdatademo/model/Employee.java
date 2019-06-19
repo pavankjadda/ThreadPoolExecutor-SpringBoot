@@ -36,7 +36,6 @@ public class Employee  implements Serializable
     @Column(name = "email", nullable = false)
     private String email;
 
-
     @Column(name = "phone")
     private String phone;
 

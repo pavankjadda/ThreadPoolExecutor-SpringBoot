@@ -31,7 +31,7 @@ spring:
     properties:
       hibernate:
         ddl-auto: update
-        show_sql: true
+        show_sql: false
         dialet: org.hibernate.dialect.MySQL8Dialect
 
   # Spring Session properties

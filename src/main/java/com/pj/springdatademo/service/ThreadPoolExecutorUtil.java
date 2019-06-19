@@ -37,19 +37,21 @@ public class ThreadPoolExecutorUtil
     void executeTask(TaskThread taskThread)
     {
         Future<?> future=threadPoolExecutor.submit(taskThread);
-        logger.info("Number of Active Threads: {}",threadPoolExecutor.getActiveCount());
+        System.out.println("Queue Size: "+threadPoolExecutor.getQueue().size());
+        System.out.println("Number of Active Threads: "+threadPoolExecutor.getActiveCount());
 
-        while (!future.isDone())
+
+       /* while(future.isDone())
         {
             try
             {
                 future.get();
-                logger.info("task.employees: {}",taskThread.employees.toString());
+                logger.info("TaskThread.employees: {}",taskThread.employees);
             }
             catch (Exception e)
             {
                 logger.error("Thread interrupted:  ()",e.getCause());
             }
-        }
+        }*/
     }
 }
