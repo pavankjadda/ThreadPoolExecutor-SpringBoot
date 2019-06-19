@@ -1,5 +1,7 @@
 package com.pj.springdatademo.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.*;
@@ -7,6 +9,8 @@ import java.util.concurrent.*;
 @Component
 public class ThreadPoolExecutorUtil
 {
+    private Logger logger= LoggerFactory.getLogger(ThreadPoolExecutorUtil.class);
+
     private ThreadPoolExecutor threadPoolExecutor;
 
     public ThreadPoolExecutorUtil()
@@ -19,33 +23,33 @@ public class ThreadPoolExecutorUtil
             try
             {
                 Thread.sleep(1000);
-                System.out.println("Exception occurred while adding task, Waiting for some time");
+                logger.error("Exception occurred while adding task, Waiting for some time");
             }
             catch (InterruptedException e)
             {
-                e.printStackTrace();
+                logger.error("Thread interrupted:  ()",e.getCause());
                 Thread.currentThread().interrupt();
             }
             threadPoolExecutor.execute(r);
         });
     }
 
-    void executeTask(Task task)
+    void executeTask(TaskThread taskThread)
     {
-        Future<?> future=threadPoolExecutor.submit(task);
-        System.out.println("Number of Active Threads: "+threadPoolExecutor.getActiveCount());
+        Future<?> future=threadPoolExecutor.submit(taskThread);
+        logger.info("Number of Active Threads: {}",threadPoolExecutor.getActiveCount());
 
-        //while (!future.isDone())
-        //{
+        while (!future.isDone())
+        {
             try
             {
                 future.get();
-                System.out.println("task.categories: "+task.categories.toString());
+                logger.info("task.employees: {}",taskThread.employees.toString());
             }
             catch (Exception e)
             {
-                e.printStackTrace();
+                logger.error("Thread interrupted:  ()",e.getCause());
             }
-        //}
+        }
     }
 }

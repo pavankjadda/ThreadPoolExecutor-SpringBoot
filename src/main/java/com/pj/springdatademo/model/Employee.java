@@ -7,10 +7,13 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-@MappedSuperclass
+@Entity
 @Data
-public class UserProfile  implements Serializable
+@Table(name = "employee")
+public class Employee  implements Serializable
 {
+    private static final long serialVersionUID = -2994315037642107537L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")

@@ -9,7 +9,7 @@ server:
 
 spring:
   application:
-    name: SpringSecurity-Data-Application
+    name: ThreadPoolExecutor-SpringBootApplication
   servlet:
     multipart:
       enabled: false
@@ -18,10 +18,9 @@ spring:
       max-request-size: -1
 
 
-
   # Jpa Properties
   datasource:
-    url: jdbc:mysql://localhost:3306/springdatademo?serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/threadpooldemo?serverTimezone=UTC
     username: root
     password: bcmc1234
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -40,9 +39,3 @@ spring:
     restart:
       enabled: true
 
-
-zuul:
-  routes:
-    category:
-      path: /category/**
-      url: http://localhost:8080/api/v1/category
